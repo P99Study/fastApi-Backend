@@ -27,6 +27,8 @@ app.add_middleware(
 
 @app.get("/api/data")
 async def get_data():
+    frontend_url = os.getenv("FRONTEND_URL")
+    print(f"Frontend url is {frontend_url}")
     return {"message": "Hello from FastAPI Backend v5 dynamic final!"}
 
 # Define a Pydantic model for request body
