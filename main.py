@@ -13,7 +13,7 @@ def read_root():
 
 origins = [
     "http://localhost:3000",  # Local development
-    os.getenv("FRONTEND_URL")  # Dynamic URL for deployed frontend
+    f"http://{os.getenv('FRONTEND_URL')}"  # Dynamic URL for deployed frontend
 ]
 
 # Allow requests from localhost (React frontend)
