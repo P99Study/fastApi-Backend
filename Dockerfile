@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Install FastAPI and Uvicorn
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install --user -r requirements.txt
 
 # Copy the application code to the build stage
 COPY . .
