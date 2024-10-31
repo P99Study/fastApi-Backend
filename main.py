@@ -19,4 +19,4 @@ app.add_middleware(
 
 @app.get("/api/data")
 async def get_data():
-    return {"message": "Hello from FastAPI Backend!"}
+    return {"message": "Hello from FastAPI Backend v2!"}
