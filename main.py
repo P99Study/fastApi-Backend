@@ -11,7 +11,10 @@ def read_root():
 # Allow requests from localhost (React frontend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Update with React frontend URL if deployed
+    allow_origins=[
+        "http://localhost:3000",  # Local development
+        "http://54.174.237.125:3000"  # New origin for deployed React frontend
+    ],  # Update with React frontend URL if deployed
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
