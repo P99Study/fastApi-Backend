@@ -61,6 +61,9 @@ jobs:
             sudo docker stop fastapi-backend-container || true
             sudo docker rm fastapi-backend-container || true
 
+            # Remove older images
+            sudo docker image prune -f  # This will delete all dangling (unused) images
+
             # Run new container
             sudo docker run -d --name fastapi-backend-container -p 8000:8000 fastapi-backend-app
           
