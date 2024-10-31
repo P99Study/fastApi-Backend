@@ -38,4 +38,4 @@ class DataRequest(BaseModel):
 @app.post("/api/data")
 async def post_data(data: DataRequest):
     print(f"Origins is {origins}")
-    return {"message": f"Hello from FastAPI to {data.person} Backend v5!"}
+    return {"message": f"Hello from FastAPI to {data.person} Backend v6!"}
