@@ -3,19 +3,23 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
+import os
+
 app = FastAPI()
 
 @app.get("/")
 def read_root():
     return {"Hello": "World v5 final from Docker"}
 
+origins = [
+    "http://localhost:3000",  # Local development
+    os.getenv("FRONTEND_URL")  # Dynamic URL for deployed frontend
+]
+
 # Allow requests from localhost (React frontend)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Local development
-        "http://54.198.70.16"  # New origin for deployed React frontend
-    ],  # Update with React frontend URL if deployed
+    allow_origins=origins,  # Update with React frontend URL if deployed
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
