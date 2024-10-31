@@ -29,7 +29,7 @@ app.add_middleware(
 async def get_data():
     frontend_url = os.getenv("FRONTEND_URL")
     print(f"Frontend url is {frontend_url}")
-    return {"message": "Hello from FastAPI Backend v5 dynamic final!"}
+    return {"message": "Hello from FastAPI Backend v8 dynamic final!"}
 
 # Define a Pydantic model for request body
 class DataRequest(BaseModel):
@@ -39,4 +39,4 @@ class DataRequest(BaseModel):
 async def post_data(data: DataRequest):
     print("post_data function was called")
     print(f"Origins is {origins}")
-    return {"message": f"Hello from FastAPI to {data.person} Backend v7!"}
+    return {"message": f"Hello from FastAPI to {data.person} Backend v8!"}
