@@ -23,11 +23,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t fastapi-backend-app .
+          sudo docker build -t fastapi-backend-app .
 
       - name: Save Docker image to file
         run: |
-          docker save fastapi-backend-app | gzip > fastapi-backend-app.tar.gz
+          sudo docker save fastapi-backend-app | gzip > fastapi-backend-app.tar.gz
 
       - name: Install SSH client
         run: |
