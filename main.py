@@ -13,7 +13,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",  # Local development
-        "http://54.174.237.125:3000"  # New origin for deployed React frontend
+        "http://54.174.237.125"  # New origin for deployed React frontend
     ],  # Update with React frontend URL if deployed
     allow_credentials=True,
     allow_methods=["*"],
