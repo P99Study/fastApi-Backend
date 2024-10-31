@@ -63,4 +63,7 @@ jobs:
 
             # Run new container
             sudo docker run -d --name fastapi-backend-container -p 8000:8000 fastapi-backend-app
+          
+            # Optional: Clean up image file
+            rm fastapi-backend-app.tar.gz
           EOF
