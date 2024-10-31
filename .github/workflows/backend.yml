@@ -43,14 +43,15 @@ jobs:
       - name: Copy Docker image to EC2
         env:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+          EC2_HOST_IP: ${{ secrets.EC2_HOST_IP }}
         run: |
-          scp -i private_key.pem -o StrictHostKeyChecking=no fastapi-backend-app.tar.gz ubuntu@54.242.218.109:/home/ubuntu/
+          scp -i private_key.pem -o StrictHostKeyChecking=no fastapi-backend-app.tar.gz ubuntu@${{ secrets.EC2_HOST_IP }}:/home/ubuntu/
 
       - name: Deploy Docker container on EC2
         env:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
-          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@54.242.218.109 << 'EOF'
+          ssh -o StrictHostKeyChecking=no -i private_key.pem ubuntu@${{ secrets.EC2_HOST_IP }} << 'EOF'
             # Load Docker image
             sudo docker load -i /home/ubuntu/fastapi-backend-app.tar.gz
 
